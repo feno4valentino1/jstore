@@ -4,14 +4,13 @@ package jstore;
 /**
  * Write a description of class DatabaseItem here.
  *
- * @author (your name)
+ * Feno Valentino 1606836433
  * @version (a version number or a date)
  */
 public class DatabaseItem
 {
-    
     private String listItem;
-    
+
     public void addItem()
     {
     }
@@ -21,5 +20,4 @@ public class DatabaseItem
     public void getItemDatabase()
     {
     }
-    
 }

@@ -4,7 +4,7 @@ package jstore;
 /**
  * Write a description of class Invoice here.
  *
- * @author (your name)
+ * Feno Valentino 1606836433
  * @version (a version number or a date)
  */
 public class Invoice
@@ -17,32 +17,32 @@ public class Invoice
     public Invoice()
     {
     }
-  public int getId()
+    public int getId()
     {
         return 0;
     }
-  public String getIdItem()
-    {
-        return "";
-    }
-  public String getDate()
+    public String getIdItem()
     {
         return "";
     }
-  public int getTotalPrice()
+    public String getDate()
+    {
+        return "";
+    }
+    public int getTotalPrice()
     {
         return 0;
     }
-  public int setID(int id){
-        return 0;
+    public void setID(int id)
+    {
     }
-  public int setidItem(int idtem){
-        return 0;
+    public void setidItem(int idtem)
+    {
     }
-  public String setDate(int date){
-        return "";
+    public void setDate(int date)
+    {
     }
-  public int TotalPrice (int totalPrice){
-        return 0;
+    public void setTotalPrice (int totalPrice)
+    {
     }
 }

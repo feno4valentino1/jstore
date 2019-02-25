@@ -4,7 +4,7 @@ package jstore;
 /**
  * Write a description of class Supplier here.
  *
- * @author (your name)
+ * Feno Valentino 1606836433
  * @version (a version number or a date)
  */
 public class Supplier
@@ -14,34 +14,40 @@ public class Supplier
     protected String email;
     protected String phoneNumber;
     protected String city;
-    public Supplier(){
     
+    public Supplier()
+    {
     }   
-    public int getId(){
+    public int getId()
+    {
         return 0;
     }
-    public String getName(){
+    public String getName()
+    {
         return "";
     }
-    public String getEmail(){
+    public String getEmail()
+    {
         return "";
     }
-    public String getPhoneNumber(){
+    public String getPhoneNumber()
+    {
         return "";
     }
-    public String getCity(){
+    public String getCity()
+    {
         return "";
     }
-    public int setId(int id){
-        return 0;
+    public void setId(int id)
+    {
     }
-    public String setName(String name){
-        return "";
+    public void setName(String name)
+    {
     }
-    public String setPhoneNumber(String phoneNumber){
-        return "";
+    public void setPhoneNumber(String phoneNumber)
+    {
     }
-    public String setCity(String city){
-        return "";
+    public void setCity(String city)
+    {
     }
 }

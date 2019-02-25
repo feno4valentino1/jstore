@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Supplier
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Supplier\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Supplier\ here.\r\n\r\n\ Feno\ Valentino\ 1606836433\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Supplier()
 comment10.params=city
-comment10.target=java.lang.String\ setCity(java.lang.String)
+comment10.target=void\ setCity(java.lang.String)
 comment2.params=
 comment2.target=int\ getId()
 comment3.params=
@@ -16,9 +16,9 @@ comment5.target=java.lang.String\ getPhoneNumber()
 comment6.params=
 comment6.target=java.lang.String\ getCity()
 comment7.params=id
-comment7.target=int\ setId(int)
+comment7.target=void\ setId(int)
 comment8.params=name
-comment8.target=java.lang.String\ setName(java.lang.String)
+comment8.target=void\ setName(java.lang.String)
 comment9.params=phoneNumber
-comment9.target=java.lang.String\ setPhoneNumber(java.lang.String)
+comment9.target=void\ setPhoneNumber(java.lang.String)
 numComments=11

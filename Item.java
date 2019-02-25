@@ -4,7 +4,7 @@ package jstore;
 /**
  * Write a description of class Item here.
  *
- * @author (your name)
+ * Feno Valentino 1606836433
  * @version (a version number or a date)
  */
 public class Item
@@ -17,7 +17,6 @@ public class Item
 
     public Item()
     {
-
     }
     public int getId()
     {
@@ -39,24 +38,19 @@ public class Item
     {
         return "";
     }
-    public int setId(int id)
+    public void setId(int id)
     {
-        return 0;
     }
-    public String setName(String name)
+    public void setName(String name)
     {
-        return "";
     }
-    public int setStock(int stock)
+    public void setStock(int stock)
     {
-        return 0;
     }
-    public int setPrice(int price)
+    public void setPrice(int price)
     {
-        return 0;
     }
-    public String setCategory(String category)
+    public void setCategory(String category)
     {
-        return "";
     }
 }
