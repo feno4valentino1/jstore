@@ -4,20 +4,32 @@ package jstore;
 /**
  * Write a description of class DatabaseItem here.
  *
- * Feno Valentino 1606836433
- * @version (a version number or a date)
+ * @author Feno Valentino
+ * @version 28 Feb 2019
  */
 public class DatabaseItem
 {
-    private String listItem;
-
-    public void addItem()
+    private String listItem[];
+    private Item item;
+    
+    public DatabaseItem()
     {
+        
     }
-    public void removeItem()
+    public boolean addItem(Item item)
     {
+    	return true;
     }
-    public void getItemDatabase()
+    public boolean removeItem(Item item)
     {
+    	return true;
+    }
+    public Item getItem()
+    {
+    	return item;
+    }
+    public String[] getItemDatabase()
+    {
+    	return listItem;
     }
 }

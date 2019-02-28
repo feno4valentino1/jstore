@@ -4,15 +4,17 @@ package jstore;
 /**
  * Write a description of class JStore here.
  *
- * Feno Valentino 1606836433
- * @version (a version number or a date)
+ * @author Feno Valentino
+ * @version 28 Feb 2019
  */
 public class JStore
 {
     public JStore()
     {
+        
     }
     public static void main(String[] args)
     {
+        
     }
 }

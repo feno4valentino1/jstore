@@ -4,45 +4,57 @@ package jstore;
 /**
  * Write a description of class Invoice here.
  *
- * Feno Valentino 1606836433
- * @version (a version number or a date)
+ * @author Feno Valentino
+ * @version 28 Feb 2019
  */
 public class Invoice
 {
-    protected int id;
-    protected int idItem;
-    protected String data;
-    protected int totalPrice;
+    private int id;
+    private Item item;
+    private String date;
+    private int totalPrice;
     
-    public Invoice()
+    public Invoice(int id, Item item, String date, int totalPrice)
     {
+        this.id = id;
+        this.item = item;
+        this.date = date;
+        this.totalPrice = totalPrice;
     }
     public int getId()
     {
-        return 0;
+        return id;
     }
-    public String getIdItem()
+    public Item getItem()
     {
-        return "";
+        return item;
     }
     public String getDate()
     {
-        return "";
+        return date;
     }
     public int getTotalPrice()
     {
-        return 0;
+        return totalPrice;
     }
-    public void setID(int id)
+    public void setId(int id)
     {
+        this.id = id;
     }
-    public void setidItem(int idtem)
+    public void setItem(Item item)
     {
+        this.item = item;
     }
-    public void setDate(int date)
+    public void setDate(String date)
     {
+        this.date = date;
     }
     public void setTotalPrice (int totalPrice)
     {
+        this.totalPrice = totalPrice;
+    }
+    public void printData()
+    {
+        System.out.println(totalPrice);
     }
 }
