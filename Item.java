@@ -16,6 +16,9 @@ public class Item
     private String category;
     private Supplier supplier;
     
+    /**
+     * Constructor for objects of class Item
+     */
     public Item(int id, String name, int stock, int price, String category, Supplier supplier)
     {
         this.id = id;
@@ -25,50 +28,122 @@ public class Item
         this.category = category;
         this.supplier = supplier;
     }
+    /**
+     * Method getId
+     *
+     * @param  -
+     * @return id
+     */
     public int getId()
     {
         return id;
     }
+    /**
+     * Method getName
+     *
+     * @param  -
+     * @return name
+     */
     public String getName()
     {
         return name;
     }
+    /**
+     * Method getStock
+     *
+     * @param  -
+     * @return stock
+     */
     public int getStock()
     {
         return stock;
     }
+    /**
+     * Method getPrice
+     *
+     * @param  -
+     * @return price
+     */
     public int getPrice()
     {
         return price;
     }
+    /**
+     * Method getCategory
+     *
+     * @param  -
+     * @return category
+     */
     public String getCategory()
     {
         return category;
     }
+    /**
+     * Method setId
+     *
+     * @param  id
+     * @return -
+     */
     public void setId(int id)
     {
         this.id = id;
     }
+    /**
+     * Method setName
+     *
+     * @param  name
+     * @return -
+     */
     public void setName(String name)
     {
         this.name = name;
     }
+    /**
+     * Method setStock
+     *
+     * @param  stock
+     * @return -
+     */
     public void setStock(int stock)
     {
         this.stock = stock;
     }
+    /**
+     * Method setPrice
+     *
+     * @param  price
+     * @return -
+     */
     public void setPrice(int price)
     {
         this.price = price;
     }
+    /**
+     * Method setCategory
+     *
+     * @param  category
+     * @return -
+     */
     public void setCategory(String category)
     {
         this.category = category;
     }
+    /**
+     * Method setSupplier
+     *
+     * @param  supplier
+     * @return -
+     */
     public void setSupplier(Supplier supplier)
     {
         this.supplier = supplier;
     }
+    /**
+     * Method printData prints out "name".
+     *
+     * @param  -
+     * @return -
+     */
     public void printData()
     {
         System.out.println(name);

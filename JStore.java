@@ -8,11 +8,17 @@ package jstore;
  * @version 28 Feb 2019
  */
 public class JStore
-{
+{       
+    /**
+     * Constructor for objects of class JStore
+     */
     public JStore()
     {
         
     }
+    /**
+     * Main function
+     */
     public static void main(String[] args)
     {
         

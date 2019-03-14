@@ -9,26 +9,53 @@ package jstore;
  */
 public class DatabaseItem
 {
-    private String listItem[];
-    private Item item;
+    private static String listItem[];
+    private static Item item;
     
+    /**
+     * Constructor for objects of class DatabaseItem
+     */
     public DatabaseItem()
     {
         
     }
-    public boolean addItem(Item item)
+    /**
+     * Method addItem
+     *
+     * @param  item
+     * @return true
+     */
+    public static boolean addItem(Item item)
     {
     	return true;
     }
-    public boolean removeItem(Item item)
+    /**
+     * Method removeItem
+     *
+     * @param  item
+     * @return true
+     */
+    public static boolean removeItem(Item item)
     {
     	return true;
     }
-    public Item getItem()
+    /**
+     * Method getItem
+     *
+     * @param  -
+     * @return item
+     */
+    public static Item getItem()
     {
     	return item;
     }
-    public String[] getItemDatabase()
+    /**
+     * Method getItemDatabase
+     *
+     * @param  -
+     * @return listItem
+     */
+    public static String[] getItemDatabase()
     {
     	return listItem;
     }
