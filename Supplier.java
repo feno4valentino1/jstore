@@ -5,7 +5,7 @@ package jstore;
  * Write a description of class Supplier here.
  *
  * @author Feno Valentino
- * @version 28 Feb 2019
+ * @version 14 Mar 2019
  */
 public class Supplier
 {
@@ -127,13 +127,19 @@ public class Supplier
         this.location = location;
     }
     /**
-     * Method printData prints out "name".
+     * Method printData prints out supplier info.
      *
      * @param  -
      * @return -
      */
     public void printData()
     {
-        System.out.println(name);
+        System.out.println("==========SUPPLIER==========");
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+        System.out.println("Phone: " + phoneNumber);
+        System.out.println("Supplier location: " + location);
+        System.out.println("\n");
     }
 }

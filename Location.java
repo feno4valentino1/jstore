@@ -5,18 +5,18 @@ package jstore;
  * Write a description of class Location here.
  *
  * @author Feno Valentino
- * @version 28 Feb 2019
+ * @version 14 Mar 2019
  */
 public class Location
 {
     private String province;
-    private String description;
     private String city;
+    private String description;
     
     /**
      * Constructor for objects of class Location
      */
-    public Location(String province, String description, String city)
+    public Location(String province, String city, String description)
     {
         this.province = province;
         this.city = city;
@@ -83,13 +83,17 @@ public class Location
         this.description = description;
     }
     /**
-     * Method printData prints out "province".
+     * Method printData prints out location info.
      *
      * @param  -
      * @return -
      */
     public void printData()
     {
-        System.out.println(province);
+        System.out.println("==========LOCATION==========");
+        System.out.println("Provinsi: " + province);
+        System.out.println("Kota: " + city);
+        System.out.println("Deskripsi: " + description);
+        System.out.println("\n");
     }
 }

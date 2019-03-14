@@ -5,7 +5,7 @@ package jstore;
  * Write a description of class DatabaseSupplier here.
  *
  * @author Feno Valentino
- * @version 28 Feb 2019
+ * @version 14 Mar 2019
  */
 public class DatabaseSupplier
 {

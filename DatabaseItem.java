@@ -5,12 +5,12 @@ package jstore;
  * Write a description of class DatabaseItem here.
  *
  * @author Feno Valentino
- * @version 28 Feb 2019
+ * @version 14 Mar 2019
  */
 public class DatabaseItem
 {
     private static String listItem[];
-    private static Item item;
+    public static Item itemDB;
     
     /**
      * Constructor for objects of class DatabaseItem
@@ -27,6 +27,7 @@ public class DatabaseItem
      */
     public static boolean addItem(Item item)
     {
+        itemDB = item;
     	return true;
     }
     /**
@@ -43,11 +44,11 @@ public class DatabaseItem
      * Method getItem
      *
      * @param  -
-     * @return item
+     * @return itemDB
      */
     public static Item getItem()
     {
-    	return item;
+    	return itemDB;
     }
     /**
      * Method getItemDatabase

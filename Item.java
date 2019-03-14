@@ -5,7 +5,7 @@ package jstore;
  * Write a description of class Item here.
  *
  * @author Feno Valentino
- * @version 28 Feb 2019
+ * @version 14 Mar 2019
  */
 public class Item
 {
@@ -13,19 +13,21 @@ public class Item
     private String name;
     private int stock;
     private int price;
-    private String category;
+    private ItemCategory category;
+    private ItemStatus status;
     private Supplier supplier;
     
     /**
      * Constructor for objects of class Item
      */
-    public Item(int id, String name, int stock, int price, String category, Supplier supplier)
+    public Item(int id, String name, int stock, int price, ItemCategory category, ItemStatus status, Supplier supplier)
     {
         this.id = id;
         this.name = name;
         this.stock = stock;
         this.price = price;
         this.category = category;
+        this.status = status;
         this.supplier = supplier;
     }
     /**
@@ -74,9 +76,29 @@ public class Item
      * @param  -
      * @return category
      */
-    public String getCategory()
+    public ItemCategory getCategory()
     {
         return category;
+    }
+    /**
+     * Method getStatus
+     *
+     * @param  -
+     * @return status
+     */
+    public ItemStatus getStatus()
+    {
+        return status;
+    }
+    /**
+     * Method getSupplier
+     *
+     * @param  -
+     * @return supplier
+     */
+    public Supplier getSupplier()
+    {
+        return supplier;
     }
     /**
      * Method setId
@@ -124,9 +146,19 @@ public class Item
      * @param  category
      * @return -
      */
-    public void setCategory(String category)
+    public void setCategory(ItemCategory category)
     {
         this.category = category;
+    }
+    /**
+     * Method setStatus
+     *
+     * @param  status
+     * @return -
+     */
+    public void setStatus(ItemStatus status)
+    {
+        this.status = status;
     }
     /**
      * Method setSupplier
@@ -139,13 +171,20 @@ public class Item
         this.supplier = supplier;
     }
     /**
-     * Method printData prints out "name".
+     * Method printData prints out item info.
      *
      * @param  -
      * @return -
      */
     public void printData()
     {
-        System.out.println(name);
+        System.out.println("==========ITEM==========");
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Stock: " + stock);
+        System.out.println("Category: " + category);
+        System.out.println("Status: " + status);
+        System.out.println("Supplier: " + supplier.getName());
+        System.out.println("\n");
     }
 }
