@@ -20,7 +20,7 @@ public class Item
     /**
      * Constructor for objects of class Item
      */
-    public Item(int id, String name, int stock, int price, ItemCategory category, ItemStatus status, Supplier supplier)
+    public Item(int id, String name, int stock, ItemStatus status, int price, Supplier supplier, ItemCategory category)
     {
         this.id = id;
         this.name = name;

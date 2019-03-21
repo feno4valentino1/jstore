@@ -7,25 +7,27 @@ package jstore;
  * @author Feno Valentino
  * @version 14 Mar 2019
  */
-public class Invoice
+public abstract class Invoice
 {
     private int id;
     private Item item;
     private String date;
-    private int totalPrice;
+    protected int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
+    private InvoiceType type;
+    
     
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, String date, int totalPrice, InvoiceStatus status)
+    public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
     {
         this.id = id;
         this.item = item;
         this.date = date;
+        this.totalItem = totalItem;
         this.totalPrice = totalPrice;
-        this.status = status;
     }
     /**
      * Method getId
@@ -81,12 +83,17 @@ public class Invoice
      * Method getInvoiceStatus
      *
      * @param  -
-     * @return status
+     * @return -
      */
-    public InvoiceStatus getInvoiceStatus()
-    {
-        return status;
-    }
+    public abstract InvoiceStatus getInvoiceStatus();
+    /**
+     * Method getInvoiceType
+     *
+     * @param  -
+     * @return -
+     */
+    public abstract InvoiceType getInvoiceType();
+    
     /**
      * Method setId
      *
@@ -153,14 +160,5 @@ public class Invoice
      * @param  -
      * @return -
      */
-    public void printData()
-    {
-        System.out.println("==========INVOICE==========");
-        System.out.println("ID: " + id);
-        System.out.println("Date: " + date);
-        System.out.println("Item: " + item.getName());
-        System.out.println("Total price: " + totalPrice);
-        System.out.println("Status: " + status);
-        System.out.println("\n");
-    }
+    public abstract void printData();
 }

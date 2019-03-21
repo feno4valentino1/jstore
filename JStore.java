@@ -8,7 +8,7 @@ package jstore;
  * @version 14 Mar 2019
  */
 public class JStore
-{       
+{   
     /**
      * Constructor for objects of class JStore
      */
@@ -21,23 +21,18 @@ public class JStore
      */
     public static void main(String[] args)
     {
-        Location newlocation = new Location("Jawa barat", "Depok", "Kota belimbing");
-        Supplier newsupplier = new Supplier(1, "Feno", "feno@gmail.com", "08888", newlocation);
-        newlocation.printData();
-        newsupplier.printData();
-        Transaction newtransaction = new Transaction();
+        Location location1 = new Location("Depok", "Jawa Barat", "Rumah saya");
+        Supplier supplier1 = new Supplier(1, "PT Feno", "feno@gmail.com", "0888888888", location1);
+        location1.printData();
+        supplier1.printData();
         
-        newtransaction.orderNewItem(newsupplier);
+        Item item1 = new Item(1, "Monitor", 10, ItemStatus.New, 100000, supplier1, ItemCategory.Electronics);
+        DatabaseItem.addItem(item1);
         
-        newtransaction.orderSecondItem(newsupplier);
-        
-        newtransaction.orderRefurbishedItem(newsupplier);
-        
-        newtransaction.sellItemPaid(DatabaseItem.itemDB);
-        
-        newtransaction.sellItemUnpaid(DatabaseItem.itemDB);
-        
-        newtransaction.sellItemInstallment(DatabaseItem.itemDB);
+        Transaction.orderNewItem(item1);
+        Transaction.sellItemPaid(item1);
+        Transaction.sellItemUnpaid(item1);
+        Transaction.sellItemInstallment(item1);
         
     }
 }
