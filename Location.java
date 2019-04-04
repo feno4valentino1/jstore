@@ -82,18 +82,5 @@ public class Location
     {
         this.description = description;
     }
-    /**
-     * Method printData prints out location info.
-     *
-     * @param  -
-     * @return -
-     */
-    public void printData()
-    {
-        System.out.println("==========LOCATION==========");
-        System.out.println("Provinsi: " + province);
-        System.out.println("Kota: " + city);
-        System.out.println("Deskripsi: " + description);
-        System.out.println("\n");
-    }
+    
 }

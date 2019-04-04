@@ -126,20 +126,8 @@ public class Supplier
     {
         this.location = location;
     }
-    /**
-     * Method printData prints out supplier info.
-     *
-     * @param  -
-     * @return -
-     */
-    public void printData()
+    public String toString()
     {
-        System.out.println("==========SUPPLIER==========");
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Email: " + email);
-        System.out.println("Phone: " + phoneNumber);
-        System.out.println("Supplier location: " + location);
-        System.out.println("\n");
+        return "========SUPPLIER=========\nID: "+ id + "Nama: " + "\nNama: " + name + "\nEmail: " + email + "\nNomor telepon: " + phoneNumber + "\nLokasi: " + location.getCity() + ", " + location.getProvince();
     }
 }

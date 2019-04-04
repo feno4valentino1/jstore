@@ -15,9 +15,9 @@ public class Buy_Paid extends Invoice
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Buy_Paid(int id, Item item, String date, int totalItem, int totalPrice)
+    public Buy_Paid(int id, Item item, int totalItem)
     {
-        super(id, item, date, totalItem, totalPrice);
+        super(id, item, totalItem);
     }
     /**
      * Method getInvoiceStatus
@@ -51,8 +51,8 @@ public class Buy_Paid extends Invoice
         System.out.println("ID: " + getId());
         System.out.println("Date: " + getDate());
         System.out.println("Item: " + getItem().getName());
-        System.out.println("Total price: " + totalPrice);
-        System.out.println("Status: " + getInvoiceStatus());
-        System.out.println("\n");
+        System.out.println("Invoice status: " + getInvoiceStatus());
+        System.out.println("Invoice type: " + getInvoiceType());
+        System.out.println("Total price: " + getTotalPrice());
     }
 }

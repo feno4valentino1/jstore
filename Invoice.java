@@ -1,5 +1,5 @@
 package jstore;
-
+import java.util.*;
 
 /**
  * Write a description of class Invoice here.
@@ -11,23 +11,21 @@ public abstract class Invoice
 {
     private int id;
     private Item item;
-    private String date;
-    protected int totalPrice;
+    private Calendar date;
+    private int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
     private InvoiceType type;
     
-    
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
+    public Invoice(int id, Item item, int totalItem)
     {
         this.id = id;
         this.item = item;
-        this.date = date;
         this.totalItem = totalItem;
-        this.totalPrice = totalPrice;
+        this.date = Calendar.getInstance();
     }
     /**
      * Method getId
@@ -55,7 +53,7 @@ public abstract class Invoice
      * @param  -
      * @return date
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -92,8 +90,7 @@ public abstract class Invoice
      * @param  -
      * @return -
      */
-    public abstract InvoiceType getInvoiceType();
-    
+    public abstract InvoiceType getInvoiceType();    
     /**
      * Method setId
      *
@@ -120,7 +117,7 @@ public abstract class Invoice
      * @param  date
      * @return -
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date = date;
     }

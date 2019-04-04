@@ -181,10 +181,8 @@ public class Item
         System.out.println("==========ITEM==========");
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
-        System.out.println("Stock: " + stock);
         System.out.println("Category: " + category);
         System.out.println("Status: " + status);
         System.out.println("Supplier: " + supplier.getName());
-        System.out.println("\n");
     }
 }

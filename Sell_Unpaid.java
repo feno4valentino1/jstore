@@ -1,5 +1,5 @@
 package jstore;
-
+import java.util.*;
 
 /**
  * Write a description of class Sell_Unpaid here.
@@ -11,15 +11,18 @@ public class Sell_Unpaid extends Invoice
 {
     private static final InvoiceType INVOICE_TYPE = InvoiceType.Sell;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
-    private String dueDate;
+    private Calendar dueDate;
+    private Customer customer;
     
     /**
      * Constructor for objects of class Sell_Unpaid
      */
-    public Sell_Unpaid(int id, Item item, String date, int totalItem, int totalPrice, String dueDate)
+    public Sell_Unpaid(int id, Item item, int totalItem, Customer customer)
     {
-        super(id, item, date, totalItem, totalPrice);
-        this.dueDate = dueDate;
+        super(id, item, totalItem);
+        this.customer = customer;
+        this.dueDate = Calendar.getInstance();
+        this.dueDate.add(Calendar.DATE, +1);
     }
     /**
      * Method getInvoiceStatus
@@ -47,9 +50,21 @@ public class Sell_Unpaid extends Invoice
      * @param  -
      * @return dueDate
      */
-    public String getDueDate()
+    public Calendar getDueDate()
     {
         return dueDate;
+    }
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+    public void setCustomer(Customer customer)
+    {
+        this.customer = customer;
+    }
+    public void setDueDate(Calendar dueDate)
+    {
+        this.dueDate = dueDate;
     }
     /**
      * Method printData prints out invoice info.
@@ -63,10 +78,9 @@ public class Sell_Unpaid extends Invoice
         System.out.println("ID: " + getId());
         System.out.println("Date: " + getDate());
         System.out.println("Item: " + getItem().getName());
-        System.out.println("Status: " + getInvoiceStatus());
+        System.out.println("Invoice status: " + getInvoiceStatus());
         System.out.println("Invoice type: " + getInvoiceType());
         System.out.println("Due date: " + getDueDate());
-        System.out.println("Total price: " + totalPrice);
-        System.out.println("\n");
+        System.out.println("Total price: " + getTotalPrice());
     }
 }

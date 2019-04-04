@@ -9,8 +9,8 @@ package jstore;
  */
 public class DatabaseSupplier
 {
-    private static String listSupplier[];
-    private static Supplier supplier;
+    private Supplier[] listSupplier;
+    private Supplier supplier;
 
     /**
      * Constructor for objects of class DatabaseSupplier
@@ -35,9 +35,9 @@ public class DatabaseSupplier
      * @param  supplier
      * @return true
      */
-    public boolean removeSupplier(Supplier supplier)
+    public void removeSupplier(Supplier supplier)
     {
-    	return true;
+        
     }
     /**
      * Method getSupplier
@@ -55,7 +55,7 @@ public class DatabaseSupplier
      * @param  -
      * @return listSupplier
      */
-    public String[] getListSupplier()
+    public Supplier[] getListSupplier()
     {
     	return listSupplier;
     }
