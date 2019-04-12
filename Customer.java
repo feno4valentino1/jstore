@@ -37,7 +37,7 @@ public class Customer
         this.email = email;
         this.username = username;
         this.password = password;
-        this.id = id;
+        id = DatabaseCustomer.getLastCustomerID() + 1;
         this.birthDate = new GregorianCalendar(year, month-1, dayOfMonth);
     }
     public String getName()
@@ -84,7 +84,7 @@ public class Customer
         else
         {
             System.out.println("Email is null");
-            this.email = "null";
+            this.email = null;
         }
     }
     public void setUsername(String username)
@@ -104,7 +104,7 @@ public class Customer
         else
         {
             System.out.println("Password is null");
-            this.password = "null";
+            this.password = null;
         }
     }
     public void setId(int id)
