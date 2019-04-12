@@ -22,7 +22,7 @@ public class Item
      */
     public Item(int id, String name, int stock, ItemStatus status, int price, Supplier supplier, ItemCategory category)
     {
-        this.id = id;
+        id = DatabaseItem.getLastItemID() + 1;
         this.name = name;
         this.stock = stock;
         this.price = price;

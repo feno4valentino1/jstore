@@ -1,5 +1,5 @@
 package jstore;
-
+import java.util.*;
 
 /**
  * Write a description of class DatabaseCustomer here.
@@ -9,37 +9,60 @@ package jstore;
  */
 public class DatabaseCustomer
 {
-    private Customer[] listCustomer;
-    private Customer customer;
-    
-    /**
-     * Constructor for objects of class DatabaseCustomer
-     */
+    private static ArrayList<Customer> CUSTOMER_DATABASE =  new ArrayList<Customer>();
+    private static int LAST_CUSTOMER_ID;
+      
     public DatabaseCustomer()
     {
         
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public boolean addCustomer(Customer costumer)
+    public static ArrayList<Customer> getCustomerDatabase()
     {
-        return true;
+        return CUSTOMER_DATABASE;
     }
-    public void removeCustomer(Customer costumer)
+    public static int getLastCustomerID()
     {
-        
+        return LAST_CUSTOMER_ID;
     }
-    public Customer getCostumer()
+    
+    public static boolean addCustomer(Customer customer)
     {
-    	return customer;
+        boolean returnValue = false;
+        for(Customer customerDB : CUSTOMER_DATABASE)
+        {
+            if(customer.getName() != customerDB.getName() &&
+            customer.getEmail() != customerDB.getEmail())
+            {
+            CUSTOMER_DATABASE.add(customer);
+            LAST_CUSTOMER_ID = customer.getId();
+            returnValue = true;
+            }
+        }
+        return returnValue;
     }
-    public Customer[] getCostumerList()
+    public static Customer getCustomer(int id)
     {
-    	return listCustomer;
+        Customer returnValue = null;
+        for(Customer customerDB : CUSTOMER_DATABASE)
+        {
+            if(customerDB.getId() == id)
+            {
+                returnValue = customerDB;
+            }
+        }
+        return returnValue;
+    }
+    public static boolean removeCustomer(int id)
+    {
+        boolean returnValue = false;
+        for(Customer customerDB : CUSTOMER_DATABASE)
+        {
+            if(customerDB.getId() == id)
+            {
+                CUSTOMER_DATABASE.remove(id);
+                returnValue = true;
+            }
+        }
+        return returnValue;
     }
 }

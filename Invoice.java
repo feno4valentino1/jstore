@@ -10,22 +10,20 @@ import java.util.*;
 public abstract class Invoice
 {
     private int id;
-    private Item item;
+    private ArrayList<Integer> item;
     private Calendar date;
     private int totalPrice;
-    private int totalItem;
-    private InvoiceStatus status;
-    private InvoiceType type;
+    private boolean isActive;
+    private Customer customer;
     
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, int totalItem)
+    public Invoice(ArrayList<Integer> item)
     {
-        this.id = id;
         this.item = item;
-        this.totalItem = totalItem;
         this.date = Calendar.getInstance();
+        id = DatabaseInvoice.getLastInvoiceID()+1;
     }
     /**
      * Method getId
@@ -43,7 +41,7 @@ public abstract class Invoice
      * @param  -
      * @return item
      */
-    public Item getItem()
+    public ArrayList<Integer> getItem()
     {
         return item;
     }
@@ -68,16 +66,6 @@ public abstract class Invoice
         return totalPrice;
     }
     /**
-     * Method getTotalItem
-     *
-     * @param  -
-     * @return totalItem
-     */
-    public int getTotalItem()
-    {
-        return totalItem;
-    }
-    /**
      * Method getInvoiceStatus
      *
      * @param  -
@@ -90,7 +78,27 @@ public abstract class Invoice
      * @param  -
      * @return -
      */
-    public abstract InvoiceType getInvoiceType();    
+    public abstract InvoiceType getInvoiceType();
+    /**
+     * Method getIsActive
+     *
+     * @param  -
+     * @return isActive
+     */
+    public boolean getIsActive()
+    {
+        return isActive;
+    }
+    /**
+     * Method getCustomer
+     *
+     * @param  -
+     * @return customer
+     */
+    public Customer getCustomer()
+    {
+        return customer;
+    }
     /**
      * Method setId
      *
@@ -107,7 +115,7 @@ public abstract class Invoice
      * @param  item
      * @return -
      */
-    public void setItem(Item item)
+    public void setItem(ArrayList<Integer> item)
     {
         this.item = item;
     }
@@ -127,35 +135,37 @@ public abstract class Invoice
      * @param  totalPrice
      * @return -
      */
-    public void setTotalPrice (int totalPrice)
+    public void setTotalPrice (int id)
     {
-        this.totalPrice = totalPrice;
+        for(Integer i : getItem())
+        {
+            totalPrice = totalPrice + DatabaseItem.getItemFromID(i.intValue()).getPrice();
+        }
     }
-    /**
-     * Method setTotalItem
-     *
-     * @param  totalItem
-     * @return -
-     */
-    public void setTotalItem (int totalItem)
-    {
-        this.totalItem = totalItem;
-    }
+    
     /**
      * Method setInvoiceStatus
      *
      * @param  status
      * @return -
      */
-    public void setInvoiceStatus (InvoiceStatus status)
+    public abstract void setInvoiceStatus (InvoiceStatus status);
+    
+    /**
+     * Method setIsActive
+     *
+     * @param  isActive
+     * @return -
+     */
+    public void setIsActive (boolean isActive)
     {
-        this.status = status;
+        this.isActive = isActive;
     }
     /**
-     * Method printData prints out invoice info.
+     * Method toString prints out invoice info.
      *
      * @param  -
      * @return -
      */
-    public abstract void printData();
+    public abstract String toString();
 }

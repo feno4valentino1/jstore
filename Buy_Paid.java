@@ -1,5 +1,5 @@
 package jstore;
-
+import java.util.*;
 
 /**
  * Write a description of class Buy_Paid here.
@@ -11,13 +11,15 @@ public class Buy_Paid extends Invoice
 {
     private static final InvoiceType INVOICE_TYPE = InvoiceType.Buy;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
+    private boolean isActive;
     
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Buy_Paid(int id, Item item, int totalItem)
+    public Buy_Paid(ArrayList<Integer> item)
     {
-        super(id, item, totalItem);
+        super(item);
+        isActive = false;
     }
     /**
      * Method getInvoiceStatus
@@ -39,20 +41,28 @@ public class Buy_Paid extends Invoice
     {
         return INVOICE_TYPE;
     }
-    /**
-     * Method printData prints out invoice info.
-     *
-     * @param  -
-     * @return -
-     */
-    public void printData()
+    public void setInvoiceStatus(InvoiceStatus status)
     {
-        System.out.println("==========INVOICE==========");
-        System.out.println("ID: " + getId());
-        System.out.println("Date: " + getDate());
-        System.out.println("Item: " + getItem().getName());
-        System.out.println("Invoice status: " + getInvoiceStatus());
-        System.out.println("Invoice type: " + getInvoiceType());
-        System.out.println("Total price: " + getTotalPrice());
+        
     }
+    public String toString()
+    {
+        String string="==========INVOICE==========";
+        string += "\nID: " + getId();
+        string += "\nBuy date: " + getDate();
+        for (Integer i : getItem())
+        {
+            Item item = DatabaseItem.getItemFromID(i.intValue());
+            string += "\nItem: " + item.getName();
+            string += "\nAmount: " + getItem().size();
+            string += "\nPrice: " + item.getPrice();
+            string += "\nSupplier ID: " + item.getSupplier().getId();
+            string += "\nSupplier name: " + item.getSupplier().getName();
+        }
+        string += "\nTotal price: " + getTotalPrice();
+        string += "\nStatus: " + INVOICE_STATUS;
+        string += "\nBuy success";
+        return string;
+    }
+    
 }

@@ -1,5 +1,5 @@
 package jstore;
-
+import java.util.regex.*;
 
 /**
  * Write a description of class Supplier here.
@@ -18,9 +18,9 @@ public class Supplier
     /**
      * Constructor for objects of class Supplier
      */
-    public Supplier(int id, String name, String email, String phoneNumber, Location location)
+    public Supplier(String name, String email, String phoneNumber, Location location)
     {
-        this.id = id;
+        id = DatabaseSupplier.getLastSupplierID() + 1;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -106,6 +106,7 @@ public class Supplier
     {
         this.email = email;
     }
+    
     /**
      * Method setPhoneNumber
      *
@@ -114,7 +115,20 @@ public class Supplier
      */
     public void setPhoneNumber(String phoneNumber)
     {
-        this.phoneNumber = phoneNumber;
+        // Regex phone number
+        String regex = "\\+62[0-9]{9,12}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        if(matcher.find())
+        {
+            System.out.println("Phone number is " + matcher.group());
+            this.phoneNumber = phoneNumber;
+        }
+        else
+        {
+            System.out.println("Failed to set phone number");
+            this.phoneNumber = null;
+        }
     }
     /**
      * Method setLocation

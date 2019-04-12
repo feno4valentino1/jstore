@@ -82,5 +82,11 @@ public class Location
     {
         this.description = description;
     }
-    
+    public String toString()
+    {
+        return "==========LOCATION=========="+
+        "\nProvinsi: "+ province +
+        "\nkota: "+ city +
+        "\nDeskripsi: " + description;
+    }
 }
