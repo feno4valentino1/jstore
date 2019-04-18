@@ -20,7 +20,7 @@ public class Item
     /**
      * Constructor for objects of class Item
      */
-    public Item(int id, String name, int stock, ItemStatus status, int price, Supplier supplier, ItemCategory category)
+    public Item(String name, int stock, ItemStatus status, int price, Supplier supplier, ItemCategory category)
     {
         id = DatabaseItem.getLastItemID() + 1;
         this.name = name;
@@ -170,19 +170,14 @@ public class Item
     {
         this.supplier = supplier;
     }
-    /**
-     * Method printData prints out item info.
-     *
-     * @param  -
-     * @return -
-     */
-    public void printData()
+    public String toString()
     {
-        System.out.println("==========ITEM==========");
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Category: " + category);
-        System.out.println("Status: " + status);
-        System.out.println("Supplier: " + supplier.getName());
+        return "==========ITEM=========="+
+        "\nID: " + id+
+        "\nName: "  + name+
+        "\nStock: " + stock+
+        "\nCategory: " + category+
+        "\nStatus: " + status+
+        "\nSupplier: " + supplier.getName();
     }
 }

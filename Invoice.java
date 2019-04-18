@@ -1,5 +1,6 @@
 package jstore;
 import java.util.*;
+import java.text.*;
 
 /**
  * Write a description of class Invoice here.
@@ -135,7 +136,7 @@ public abstract class Invoice
      * @param  totalPrice
      * @return -
      */
-    public void setTotalPrice (int id)
+    public void setTotalPrice(int totalPrice)
     {
         for(Integer i : getItem())
         {

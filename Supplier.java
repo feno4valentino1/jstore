@@ -23,7 +23,7 @@ public class Supplier
         id = DatabaseSupplier.getLastSupplierID() + 1;
         this.name = name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        setPhoneNumber(phoneNumber);
         this.location = location;
     }
     /**
@@ -121,12 +121,10 @@ public class Supplier
         Matcher matcher = pattern.matcher(phoneNumber);
         if(matcher.find())
         {
-            System.out.println("Phone number is " + matcher.group());
             this.phoneNumber = phoneNumber;
         }
         else
         {
-            System.out.println("Failed to set phone number");
             this.phoneNumber = null;
         }
     }
@@ -142,6 +140,6 @@ public class Supplier
     }
     public String toString()
     {
-        return "========SUPPLIER=========\nID: "+ id + "Nama: " + "\nNama: " + name + "\nEmail: " + email + "\nNomor telepon: " + phoneNumber + "\nLokasi: " + location.getCity() + ", " + location.getProvince();
+        return "========SUPPLIER=========\nID: "+ id + "\nName: " + name + "\nEmail: " + email + "\nPhone number: " + phoneNumber + "\nLocation: " + location.getCity() + "\nProvince: " + location.getProvince();
     }
 }

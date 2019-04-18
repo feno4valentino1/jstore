@@ -1,5 +1,6 @@
 package jstore;
 import java.util.*;
+import java.text.*;
 
 /**
  * Write a description of class Sell_Unpaid here.
@@ -11,7 +12,7 @@ public class Sell_Unpaid extends Invoice
 {
     private static final InvoiceType INVOICE_TYPE = InvoiceType.Sell;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
-    private Calendar dueDate;
+    private Calendar dueDate = Calendar.getInstance();
     private Customer customer;
     private boolean isActive;
     
@@ -22,7 +23,6 @@ public class Sell_Unpaid extends Invoice
     {
         super(item);
         this.customer = customer;
-        this.dueDate = Calendar.getInstance();
         this.dueDate.add(Calendar.DATE, +1);
         isActive = true;
     }
@@ -74,9 +74,10 @@ public class Sell_Unpaid extends Invoice
     }
     public String toString()
     {
-        String string="==========INVOICE==========";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        String string="==========INVOICE SELL UNPAID==========";
         string += "\nID: "+getId();
-        string += "\nBuy date: " + getDate();
+        string += "\nBuy date: " + sdf.format(getDate().getTime());
         for (Integer i : getItem())
         {
             Item item = DatabaseItem.getItemFromID(i.intValue());
@@ -90,7 +91,7 @@ public class Sell_Unpaid extends Invoice
         string += "\nCustomer ID: " + customer.getId();
         string += "\nCustomer name: " + customer.getName();
         string += "\nStatus: " + INVOICE_STATUS;
-        string += "\nDue date: " + getDueDate();
+        string += "\nDue date: " + sdf.format(getDueDate().getTime());
         string += "\nIf payment is not received by due date, this transaction will be cancelled.";
         return string;
     }

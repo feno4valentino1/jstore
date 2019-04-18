@@ -10,7 +10,7 @@ import java.util.*;
 public class DatabaseCustomer
 {
     private static ArrayList<Customer> CUSTOMER_DATABASE =  new ArrayList<Customer>();
-    private static int LAST_CUSTOMER_ID;
+    private static int LAST_CUSTOMER_ID = 0;
       
     public DatabaseCustomer()
     {
@@ -27,18 +27,18 @@ public class DatabaseCustomer
     
     public static boolean addCustomer(Customer customer)
     {
-        boolean returnValue = false;
         for(Customer customerDB : CUSTOMER_DATABASE)
         {
-            if(customer.getName() != customerDB.getName() &&
-            customer.getEmail() != customerDB.getEmail())
+            if(customer.getName().equals(customerDB.getName()) &&
+                customer.getEmail().equals(customerDB.getEmail()))
             {
-            CUSTOMER_DATABASE.add(customer);
-            LAST_CUSTOMER_ID = customer.getId();
-            returnValue = true;
+                return false;
             }
         }
-        return returnValue;
+        CUSTOMER_DATABASE.add(customer);
+        LAST_CUSTOMER_ID = customer.getId();
+        return true;
+        
     }
     public static Customer getCustomer(int id)
     {

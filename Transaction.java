@@ -91,7 +91,7 @@ public class Transaction
         DatabaseInvoice.addInvoice(invoice);
     }
     
-    public boolean finishTransaction(Invoice invoice)
+    public static boolean finishTransaction(Invoice invoice)
     {
         Invoice invoiceDB = DatabaseInvoice.getInvoice(invoice.getId());
         if (invoiceDB != null)
@@ -106,7 +106,7 @@ public class Transaction
         }
     }
     
-    public boolean cancelTransaction(Invoice invoice)
+    public static boolean cancelTransaction(Invoice invoice)
     {
         Invoice invoiceDB = DatabaseInvoice.getInvoice(invoice.getId());
         if (invoiceDB != null)

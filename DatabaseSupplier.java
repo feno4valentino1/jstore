@@ -33,21 +33,21 @@ public class DatabaseSupplier
      * @param  supplier
      * @return true
      */
-    public boolean addSupplier(Supplier supplier)
+    public static boolean addSupplier(Supplier supplier)
     {
-    	boolean returnValue = false;
+        
         for(Supplier supplierDB : SUPPLIER_DATABASE)
         {
-            if(supplier.getName() != supplierDB.getName() &&
-            supplier.getEmail() != supplierDB.getEmail() &&
-            supplier.getPhoneNumber() != supplierDB.getPhoneNumber())
+            if(supplier.getName().equals(supplierDB.getName()) &&
+                supplier.getEmail().equals(supplierDB.getEmail()) &&
+                    supplier.getPhoneNumber().equals(supplierDB.getPhoneNumber()))
             {
-            SUPPLIER_DATABASE.add(supplier);
-            LAST_SUPPLIER_ID = supplier.getId();
-            returnValue = true;
+                return false;
             }
         }
-        return returnValue;
+        SUPPLIER_DATABASE.add(supplier);
+        LAST_SUPPLIER_ID = supplier.getId();
+        return true;
     }
     /**
      * Method getSupplier
@@ -55,7 +55,7 @@ public class DatabaseSupplier
      * @param  -
      * @return supplier
      */
-    public Supplier getSupplier(int id)
+    public static Supplier getSupplier(int id)
     {
         Supplier returnValue = null;
         for(Supplier supplierDB : SUPPLIER_DATABASE)
@@ -73,7 +73,7 @@ public class DatabaseSupplier
      * @param  supplier
      * @return true
      */
-    public boolean removeSupplier(int id)
+    public static boolean removeSupplier(int id)
     {
         boolean returnValue = false;
         for(Supplier supplierDB : SUPPLIER_DATABASE)

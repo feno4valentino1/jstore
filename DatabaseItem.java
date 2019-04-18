@@ -35,19 +35,18 @@ public class DatabaseItem
      */
     public static boolean addItem(Item item)
     {
-        boolean returnValue = false;
         for(Item itemDB : ITEM_DATABASE)
         {
-            if (item.getName() != itemDB.getName() &&
-            item.getStatus() != itemDB.getStatus() &&
-            item.getSupplier() != itemDB.getSupplier())
+            if (item.getName().equals(itemDB.getName()) &&
+            item.getStatus().equals(itemDB.getStatus()) &&
+            item.getSupplier().equals(itemDB.getSupplier()))
             {
-            ITEM_DATABASE.add(item);
-            LAST_ITEM_ID=item.getId();
-            returnValue = true;
+                return false;
             }
         }
-        return returnValue;
+        ITEM_DATABASE.add(item);
+        LAST_ITEM_ID=item.getId();
+        return true;
     }
     public static Item getItemFromID(int id)
     {

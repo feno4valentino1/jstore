@@ -1,5 +1,6 @@
 package jstore;
 import java.util.*;
+import java.text.*;
 
 /**
  * Write a description of class Buy_Paid here.
@@ -47,9 +48,10 @@ public class Buy_Paid extends Invoice
     }
     public String toString()
     {
-        String string="==========INVOICE==========";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        String string="==========INVOICE BUY PAID==========";
         string += "\nID: " + getId();
-        string += "\nBuy date: " + getDate();
+        string += "\nBuy date: " + sdf.format(getDate().getTime());
         for (Integer i : getItem())
         {
             Item item = DatabaseItem.getItemFromID(i.intValue());
@@ -61,7 +63,7 @@ public class Buy_Paid extends Invoice
         }
         string += "\nTotal price: " + getTotalPrice();
         string += "\nStatus: " + INVOICE_STATUS;
-        string += "\nBuy success";
+        string += "\nBuy success.";
         return string;
     }
     

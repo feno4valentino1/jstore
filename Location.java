@@ -85,8 +85,8 @@ public class Location
     public String toString()
     {
         return "==========LOCATION=========="+
-        "\nProvinsi: "+ province +
-        "\nkota: "+ city +
-        "\nDeskripsi: " + description;
+        "\nProvince: "+ province +
+        "\nCity: "+ city +
+        "\nDescription: " + description;
     }
 }

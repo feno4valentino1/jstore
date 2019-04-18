@@ -1,5 +1,6 @@
 package jstore;
 import java.util.*;
+import java.text.*;
 
 /**
  * Write a description of class Sell_Installment here.
@@ -25,8 +26,6 @@ public class Sell_Installment extends Invoice
         this.installmentPeriod = installmentPeriod;
         this.customer = customer;
         isActive = true;
-        setInstallmentPrice();
-        setTotalPrice();
     }
     /**
      * Method getInstallmentPeriod
@@ -78,11 +77,11 @@ public class Sell_Installment extends Invoice
     }
     public void setInstallmentPrice()
     {
-        installmentPrice = (getTotalPrice()/installmentPeriod)*102/100;
+        this.installmentPrice = (((getTotalPrice()/installmentPeriod)*102)/100);
     }
     public void setTotalPrice()
     {
-        setTotalPrice(installmentPrice*installmentPeriod);
+        //totalPrice = installmentPrice*installmentPeriod;
     }
     public void setInvoiceStatus(InvoiceStatus status)
     {
@@ -90,9 +89,10 @@ public class Sell_Installment extends Invoice
     }
     public String toString()
     {
-        String string="==========INVOICE==========";
-        string += "\nID: "+getId();
-        string += "\nBuy date: " + getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        String string="==========INVOICE SELL INSTALLMENT==========";
+        string += "\nID: " + getId();
+        string += "\nBuy date: " + sdf.format(getDate().getTime());
         for (Integer i : getItem())
         {
             Item item = DatabaseItem.getItemFromID(i.intValue());

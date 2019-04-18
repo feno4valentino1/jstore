@@ -22,21 +22,21 @@ public class Customer
     public Customer(String name, String email, String username, String password, Calendar birthDate)
     {
         this.name = name;
-        this.email = email;
+        setEmail(email);
         this.username = username;
-        this.password = password;
+        setPassword(password);
         id = DatabaseCustomer.getLastCustomerID() + 1;
         this.birthDate = birthDate;
     }
     /**
      * Constructor for objects of class Customer
      */
-    public Customer(String name, String email, String username, String password, int id, int year, int month, int dayOfMonth)
+    public Customer(String name, String email, String username, String password, int year, int month, int dayOfMonth)
     {
         this.name = name;
-        this.email = email;
+        setEmail(email);
         this.username = username;
-        this.password = password;
+        setPassword(password);
         id = DatabaseCustomer.getLastCustomerID() + 1;
         this.birthDate = new GregorianCalendar(year, month-1, dayOfMonth);
     }
@@ -78,12 +78,10 @@ public class Customer
         Matcher matcher = pattern.matcher(email);
         if (matcher.find())
         {
-            System.out.println("Email is " + matcher.group());
             this.email = email;
         }
         else
         {
-            System.out.println("Email is null");
             this.email = null;
         }
     }
@@ -98,12 +96,10 @@ public class Customer
         Matcher matcher = pattern.matcher(password);
         if(matcher.find())
         {
-            System.out.println("Password is " + matcher.group());
             this.password = password;
         }
         else
         {
-            System.out.println("Password is null");
             this.password = null;
         }
     }
@@ -119,5 +115,13 @@ public class Customer
     {
         this.birthDate = new GregorianCalendar(year, month-1, dayOfMonth);
     }
-    
+    public String toString()
+    {
+        return "==========Customer=========="+
+        "\nID: "+id+
+        "\nNama: "+name+
+        "\nUsername: "+username+
+        "\nEmail: "+email+
+        "\nPassword: "+password;
+    }
 }
