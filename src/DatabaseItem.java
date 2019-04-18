@@ -32,15 +32,16 @@ public class DatabaseItem
      * @param  item
      * @return true
      */
-    public static boolean addItem(Item item)
+    public static boolean addItem(Item item) throws ItemAlreadyExistsException
     {
         for(Item itemDB : ITEM_DATABASE)
         {
             if (item.getName().equals(itemDB.getName()) &&
-            item.getStatus().equals(itemDB.getStatus()) &&
-            item.getSupplier().equals(itemDB.getSupplier()))
+                    item.getStatus().equals(itemDB.getStatus()) &&
+                    item.getCategory().equals(itemDB.getCategory()) &&
+                    item.getSupplier().equals(itemDB.getSupplier()))
             {
-                return false;
+                throw new ItemAlreadyExistsException(item);
             }
         }
         ITEM_DATABASE.add(item);
@@ -49,15 +50,14 @@ public class DatabaseItem
     }
     public static Item getItemFromID(int id)
     {
-        Item returnValue = null;
         for(Item itemDB : ITEM_DATABASE)
         {
             if(itemDB.getId() == id)
             {
-                returnValue = itemDB;
+                return itemDB;
             }
         }
-        return returnValue;
+        return null;
     }
     public static ArrayList<Item> getItemFromSupplier(Supplier supplier)
     {
@@ -101,17 +101,16 @@ public class DatabaseItem
      * @param  id
      * @return true
      */
-    public static boolean removeItem(int id)
+    public static boolean removeItem(int id) throws ItemNotFoundException
     {
-        boolean returnValue = false;
         for(Item itemDB : ITEM_DATABASE)
         {
             if(itemDB.getId() == id)
             {
                 ITEM_DATABASE.remove(id);
-                returnValue = true;
+                return true;
             }
         }
-        return returnValue;
+        throw new ItemNotFoundException(id);
     }
 }

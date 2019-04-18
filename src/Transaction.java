@@ -14,84 +14,120 @@ public class Transaction
      */
     public Transaction()
     {
-        
-    }
-    
-    public static void orderNewItem(Item item)
-    {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice = new Buy_Paid(itemID);
-        DatabaseInvoice.addInvoice(invoice);
+
     }
 
-    public static void orderSecondItem(Item item)
+    public static void orderNewItem(ArrayList<Integer> item_list)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice = new Buy_Paid(itemID);
-        DatabaseInvoice.addInvoice(invoice);
-    }
-    
-
-    public static void orderRefurbishedItem(Item item)
-    {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice = new Buy_Paid(itemID);
-        DatabaseInvoice.addInvoice(invoice);
+        try
+        {
+            DatabaseInvoice.addInvoice(new Buy_Paid(item_list));
+        }
+        catch (InvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
     }
 
-    public static void sellItemPaid(Item item, Customer customer)
+    public static void orderSecondItem(ArrayList<Integer> item_list)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice = new Sell_Paid(itemID, customer);
-        DatabaseInvoice.addInvoice(invoice);
+        try
+        {
+            DatabaseInvoice.addInvoice(new Buy_Paid(item_list));
+        }
+        catch (InvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
     }
 
-    public static void sellItemUnpaid(Item item, Customer customer)
+
+    public static void orderRefurbishedItem(ArrayList<Integer> item_list)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice = new Sell_Unpaid(itemID, customer);
-        DatabaseInvoice.addInvoice(invoice);
+        try
+        {
+            DatabaseInvoice.addInvoice(new Buy_Paid(item_list));
+        }
+        catch (InvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
     }
 
-    public static void sellItemInstallment(Item item, int installmentPeriod, Customer customer)
+    public static void sellItemPaid(ArrayList<Integer> item_list, Customer customer)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice = new Sell_Installment(itemID, installmentPeriod, customer);
-        DatabaseInvoice.addInvoice(invoice);
+        try
+        {
+            DatabaseInvoice.addInvoice(new Sell_Paid(item_list, customer));
+        }
+        catch
+        (InvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
     }
-    
+
+    public static void sellItemUnpaid(ArrayList<Integer> item_list, Customer customer)
+    {
+        try
+        {
+            DatabaseInvoice.addInvoice(new Sell_Unpaid(item_list, customer));
+        }
+        catch (InvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+    }
+
+    public static void sellItemInstallment(ArrayList<Integer> item_list, int installmentPeriod, Customer customer)
+    {
+        try
+        {
+            DatabaseInvoice.addInvoice(new Sell_Installment(item_list, installmentPeriod, customer));
+        }
+        catch
+        (InvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
+    }
+
     public static boolean finishTransaction(Invoice invoice)
     {
         Invoice invoiceDB = DatabaseInvoice.getInvoice(invoice.getId());
-        if (invoiceDB != null)
+        if(invoice.getInvoiceStatus().equals(InvoiceStatus.Installment) &&
+                invoice.getInvoiceStatus().equals(InvoiceStatus.Unpaid))
         {
-            invoice.setIsActive(false);
-            System.out.println("Invoice isActive status: " + invoice.getIsActive());
-            return true;     
+            if (invoiceDB != null)
+            {
+                invoice.setIsActive(false);
+                System.out.println("Invoice isActive status: " + invoice.getIsActive());
+                return true;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
-    
+
     public static boolean cancelTransaction(Invoice invoice)
     {
-        Invoice invoiceDB = DatabaseInvoice.getInvoice(invoice.getId());
-        if (invoiceDB != null)
+        if(invoice.getInvoiceStatus().equals(InvoiceStatus.Installment)
+                && invoice.getInvoiceStatus().equals(InvoiceStatus.Unpaid))
         {
-            DatabaseInvoice.removeInvoice(invoiceDB.getId());
-            return true;            
+            for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase())
+            {
+                if (invoiceDB.getId() == invoice.getId()) {
+                    try
+                    {
+                        DatabaseInvoice.removeInvoice(invoice.getId());
+                    }
+                    catch (InvoiceNotFoundException e)
+                    {
+                        System.out.println(e.getExMessage());
+                    }
+                    return true;
+                }
+            }
         }
-        else
-        {
-            return false;
-        }     
+        return false;
     }
 }

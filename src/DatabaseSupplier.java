@@ -32,16 +32,15 @@ public class DatabaseSupplier
      * @param  supplier
      * @return true
      */
-    public static boolean addSupplier(Supplier supplier)
+    public static boolean addSupplier(Supplier supplier) throws SupplierAlreadyExistsException
     {
         
         for(Supplier supplierDB : SUPPLIER_DATABASE)
         {
-            if(supplier.getName().equals(supplierDB.getName()) &&
-                supplier.getEmail().equals(supplierDB.getEmail()) &&
+            if(supplier.getEmail().equals(supplierDB.getEmail()) ||
                     supplier.getPhoneNumber().equals(supplierDB.getPhoneNumber()))
             {
-                return false;
+                throw new SupplierAlreadyExistsException(supplier);
             }
         }
         SUPPLIER_DATABASE.add(supplier);
@@ -56,15 +55,14 @@ public class DatabaseSupplier
      */
     public static Supplier getSupplier(int id)
     {
-        Supplier returnValue = null;
         for(Supplier supplierDB : SUPPLIER_DATABASE)
         {
             if(supplierDB.getId() == id)
             {
-                returnValue = supplierDB;
+                return supplierDB;
             }
         }
-        return returnValue;
+        return null;
     }
     /**
      * Method removeSupplier
@@ -74,16 +72,29 @@ public class DatabaseSupplier
      */
     public static boolean removeSupplier(int id)
     {
-        boolean returnValue = false;
         for(Supplier supplierDB : SUPPLIER_DATABASE)
         {
             if(supplierDB.getId() == id)
             {
-                DatabaseItem.getItemDatabase().removeAll(DatabaseItem.getItemFromSupplier(supplierDB));
-                SUPPLIER_DATABASE.remove(id);
-                returnValue = true;
+                ArrayList<Item> itemDB = DatabaseItem.getItemFromSupplier(supplierDB);
+                if (itemDB != null)
+                {
+                    for (Item item : itemDB)
+                    {
+                        try
+                        {
+                            DatabaseItem.removeItem(item.getId());
+                        }
+                        catch (ItemNotFoundException e)
+                        {
+                            System.out.print(e.getExMessage());
+                        }
+                    }
+                }
+                SUPPLIER_DATABASE.remove(supplierDB);
+                return true;
             }
         }
-        return returnValue;
+        return false;
     }
 }

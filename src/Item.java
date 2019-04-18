@@ -9,7 +9,6 @@ public class Item
 {
     private int id;
     private String name;
-    private int stock;
     private int price;
     private ItemCategory category;
     private ItemStatus status;
@@ -22,7 +21,6 @@ public class Item
     {
         id = DatabaseItem.getLastItemID() + 1;
         this.name = name;
-        this.stock = stock;
         this.price = price;
         this.category = category;
         this.status = status;
@@ -47,16 +45,6 @@ public class Item
     public String getName()
     {
         return name;
-    }
-    /**
-     * Method getStock
-     *
-     * @param  -
-     * @return stock
-     */
-    public int getStock()
-    {
-        return stock;
     }
     /**
      * Method getPrice
@@ -119,16 +107,6 @@ public class Item
         this.name = name;
     }
     /**
-     * Method setStock
-     *
-     * @param  stock
-     * @return -
-     */
-    public void setStock(int stock)
-    {
-        this.stock = stock;
-    }
-    /**
      * Method setPrice
      *
      * @param  price
@@ -173,7 +151,6 @@ public class Item
         return "==========ITEM=========="+
         "\nID: " + id+
         "\nName: "  + name+
-        "\nStock: " + stock+
         "\nCategory: " + category+
         "\nStatus: " + status+
         "\nSupplier: " + supplier.getName();
