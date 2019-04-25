@@ -1,6 +1,8 @@
 import java.lang.Math.*;
 
-public class RunForYourLife implements Runnable {
+public class RunForYourLife implements Runnable
+{
+
     private String name;
     private int runDelay;
     private double handicap;

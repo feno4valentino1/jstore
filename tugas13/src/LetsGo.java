@@ -1,7 +1,7 @@
 import java.lang.Math.*;
 
-public class LetsGo {
-
+public class LetsGo
+{
     public LetsGo()
     {
 
