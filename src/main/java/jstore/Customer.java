@@ -60,6 +60,7 @@ public class Customer
     {
         return id;
     }
+
     public Calendar getBirthDate()
     {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");

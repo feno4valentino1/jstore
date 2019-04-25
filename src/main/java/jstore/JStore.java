@@ -28,19 +28,19 @@ public class JStore
 
 
 
-        //Location location1 = new Location("jawa", "depok", "location 1");
+        Location location1 = new Location("jawa", "depok", "location 1");
 
-        //try
-        //{
-        //    DatabaseSupplier.addSupplier(new Supplier("feno", "feno@mail.com", "+6288898888888", location1));
-        //    DatabaseSupplier.addSupplier(new Supplier("feno v", "fenov@mail.com", "+6288898888878", location1));
-        //    DatabaseSupplier.addSupplier(new Supplier("feno vv", "fenovv@mail.com", "+6287898888888", location1));
+        try
+        {
+            DatabaseSupplier.addSupplier(new Supplier("feno", "feno@mail.com", "+6288898888888", location1));
+            DatabaseSupplier.addSupplier(new Supplier("feno v", "fenov@mail.com", "+6288898888878", location1));
+            DatabaseSupplier.addSupplier(new Supplier("feno vv", "fenovv@mail.com", "+6287898888888", location1));
         //    DatabaseSupplier.addSupplier(new Supplier("feno vvv", "fenovvv@mail.com", "+6288898888888", location1));
-        //}
-        //catch (SupplierAlreadyExistsException e)
-        //{
-        //    System.out.println(e.getExMessage());
-        //}
+        }
+        catch (SupplierAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
         //
         //for(Supplier supplier : DatabaseSupplier.getSupplierDatabase())
         //{
@@ -63,23 +63,25 @@ public class JStore
         //    System.out.println(customer);
         //}
 
-        //try
-        //{
-        //    DatabaseItem.addItem(new Item("laptop", ItemStatus.New, 10000, DatabaseSupplier.getSupplier(1), ItemCategory.Electronics));
-        //   DatabaseItem.addItem(new Item("monitor", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(2), ItemCategory.Electronics));
-        //    DatabaseItem.addItem(new Item("lemari es", ItemStatus.New, 60000, DatabaseSupplier.getSupplier(1), ItemCategory.Furniture));
+        try
+        {
+            DatabaseItem.addItem(new Item("laptop", ItemStatus.New, 10000, DatabaseSupplier.getSupplier(1), ItemCategory.Electronics));
+            DatabaseItem.addItem(new Item("monitor", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(2), ItemCategory.Electronics));
+            DatabaseItem.addItem(new Item("lemari es", ItemStatus.New, 60000, DatabaseSupplier.getSupplier(1), ItemCategory.Furniture));
+            DatabaseItem.addItem(new Item("penghapus", ItemStatus.New, 100, DatabaseSupplier.getSupplier(2), ItemCategory.Stationery));
         //    DatabaseItem.addItem(new Item("penghapus", ItemStatus.New, 100, DatabaseSupplier.getSupplier(1), ItemCategory.Stationery));
-        //    DatabaseItem.addItem(new Item("penghapus", ItemStatus.New, 100, DatabaseSupplier.getSupplier(1), ItemCategory.Stationery));
-        //}
-        //catch (ItemAlreadyExistsException e)
-        //{
-        //    System.out.println(e.getExMessage());
-        //}
+        }
+        catch (ItemAlreadyExistsException e)
+        {
+            System.out.println(e.getExMessage());
+        }
 
         //for(Item item : DatabaseItem.getItemDatabase())
         //{
         //    System.out.println(item);
         //}
+
+
 
         //ArrayList<Integer> items1 = new ArrayList<Integer>();
         //ArrayList<Integer> items2 = new ArrayList<Integer>();
