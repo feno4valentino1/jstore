@@ -27,7 +27,7 @@ public class CustomerController
         {
             DatabaseCustomer.addCustomer(customer);
         }
-        catch (Exception e)
+        catch (CustomerAlreadyExistsException e)
         {
             e.getMessage();
             return null;

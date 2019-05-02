@@ -113,7 +113,8 @@ public class Transaction
         {
             for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase())
             {
-                if (invoiceDB.getId() == invoice.getId()) {
+                if (invoiceDB.getId() == invoice.getId())
+                {
                     try
                     {
                         DatabaseInvoice.removeInvoice(invoice.getId());

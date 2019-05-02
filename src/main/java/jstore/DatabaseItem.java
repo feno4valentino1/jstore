@@ -46,7 +46,7 @@ public class DatabaseItem
             }
         }
         ITEM_DATABASE.add(item);
-        LAST_ITEM_ID=item.getId();
+        LAST_ITEM_ID = item.getId();
         return true;
     }
     public static Item getItemFromID(int id)

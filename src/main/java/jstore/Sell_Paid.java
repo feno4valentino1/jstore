@@ -13,7 +13,6 @@ public class Sell_Paid extends Invoice
     private static final InvoiceType INVOICE_TYPE = InvoiceType.Sell;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
     private Customer customer;
-    private boolean isActive;
     
     /**
      * Constructor for objects of class Sell_Paid
@@ -22,7 +21,7 @@ public class Sell_Paid extends Invoice
     {
         super(item);
         this.customer = customer;
-        isActive = false;
+        setIsActive(false);
     }
     /**
      * Method getInvoiceStatus
@@ -66,7 +65,6 @@ public class Sell_Paid extends Invoice
         {
             Item item = DatabaseItem.getItemFromID(i.intValue());
             string += "\nItem: " + item.getName();
-            string += "\nAmount: " + getItem().size();
             string += "\nPrice: " + item.getPrice();
             string += "\nSupplier ID: " + item.getSupplier().getId();
             string += "\nSupplier name: " + item.getSupplier().getName();

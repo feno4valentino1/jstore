@@ -12,7 +12,6 @@ public class Buy_Paid extends Invoice
 {
     private static final InvoiceType INVOICE_TYPE = InvoiceType.Buy;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
-    private boolean isActive;
     
     /**
      * Constructor for objects of class Buy_Paid
@@ -20,7 +19,7 @@ public class Buy_Paid extends Invoice
     public Buy_Paid(ArrayList<Integer> item)
     {
         super(item);
-        isActive = false;
+        setIsActive(false);
     }
     /**
      * Method getInvoiceStatus
@@ -56,7 +55,6 @@ public class Buy_Paid extends Invoice
         {
             Item item = DatabaseItem.getItemFromID(i.intValue());
             string += "\nItem: " + item.getName();
-            string += "\nAmount: " + getItem().size();
             string += "\nPrice: " + item.getPrice();
             string += "\nSupplier ID: " + item.getSupplier().getId();
             string += "\nSupplier name: " + item.getSupplier().getName();

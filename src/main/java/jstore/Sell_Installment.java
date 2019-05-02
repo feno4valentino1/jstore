@@ -15,7 +15,6 @@ public class Sell_Installment extends Invoice
     private int installmentPeriod;
     private int installmentPrice;
     private Customer customer;
-    private boolean isActive;
     
     /**
      * Constructor for objects of class Sell_Installment
@@ -25,7 +24,9 @@ public class Sell_Installment extends Invoice
         super(item);
         this.installmentPeriod = installmentPeriod;
         this.customer = customer;
-        isActive = true;
+        setIsActive(true);
+        setInstallmentPrice();
+        setTotalPrice(installmentPrice*installmentPeriod);
     }
     /**
      * Method getInstallmentPeriod
@@ -79,10 +80,10 @@ public class Sell_Installment extends Invoice
     {
         this.installmentPrice = (((getTotalPrice()/installmentPeriod)*102)/100);
     }
-    public void setTotalPrice()
-    {
-        //totalPrice = installmentPrice*installmentPeriod;
-    }
+    //public void setTotalPrice()
+    //{
+    //    this.totalPrice = installmentPrice*installmentPeriod;
+    //}
     public void setInvoiceStatus(InvoiceStatus status)
     {
         
@@ -97,7 +98,6 @@ public class Sell_Installment extends Invoice
         {
             Item item = DatabaseItem.getItemFromID(i.intValue());
             string += "\nItem: " + item.getName();
-            string += "\nAmount: " + getItem().size();
             string += "\nPrice: " + item.getPrice();
             string += "\nSupplier ID: " + item.getSupplier().getId();
             string += "\nSupplier name: " + item.getSupplier().getName();
@@ -108,7 +108,7 @@ public class Sell_Installment extends Invoice
         string += "\nCustomer ID: " + customer.getId();
         string += "\nCustomer name: " + customer.getName();
         string += "\nStatus: " + INVOICE_STATUS;
-        string += "\nSell success";
+        string += "\nSell success.";
         return string;
     }
 }

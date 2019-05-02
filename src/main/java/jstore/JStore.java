@@ -68,7 +68,7 @@ public class JStore
             DatabaseItem.addItem(new Item("laptop", ItemStatus.New, 10000, DatabaseSupplier.getSupplier(1), ItemCategory.Electronics));
             DatabaseItem.addItem(new Item("monitor", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(2), ItemCategory.Electronics));
             DatabaseItem.addItem(new Item("lemari es", ItemStatus.New, 60000, DatabaseSupplier.getSupplier(1), ItemCategory.Furniture));
-            DatabaseItem.addItem(new Item("penghapus", ItemStatus.New, 100, DatabaseSupplier.getSupplier(2), ItemCategory.Stationery));
+            DatabaseItem.addItem(new Item("penghapus", ItemStatus.Refurbished, 100, DatabaseSupplier.getSupplier(2), ItemCategory.Stationery));
         //    DatabaseItem.addItem(new Item("penghapus", ItemStatus.New, 100, DatabaseSupplier.getSupplier(1), ItemCategory.Stationery));
         }
         catch (ItemAlreadyExistsException e)

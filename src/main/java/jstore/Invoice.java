@@ -25,6 +25,10 @@ public abstract class Invoice
         this.item = item;
         this.date = Calendar.getInstance();
         id = DatabaseInvoice.getLastInvoiceID()+1;
+        for(Integer i : this.item)
+        {
+            totalPrice = totalPrice + DatabaseItem.getItemFromID(i.intValue()).getPrice();
+        }
     }
     /**
      * Method getId
@@ -138,10 +142,7 @@ public abstract class Invoice
      */
     public void setTotalPrice(int totalPrice)
     {
-        for(Integer i : getItem())
-        {
-            totalPrice = totalPrice + DatabaseItem.getItemFromID(i.intValue()).getPrice();
-        }
+        this.totalPrice = totalPrice;
     }
     
     /**

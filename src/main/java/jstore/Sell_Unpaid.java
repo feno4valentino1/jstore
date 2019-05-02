@@ -14,7 +14,6 @@ public class Sell_Unpaid extends Invoice
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
     private Calendar dueDate = Calendar.getInstance();
     private Customer customer;
-    private boolean isActive;
     
     /**
      * Constructor for objects of class Sell_Unpaid
@@ -24,7 +23,7 @@ public class Sell_Unpaid extends Invoice
         super(item);
         this.customer = customer;
         this.dueDate.add(Calendar.DATE, +1);
-        isActive = true;
+        setIsActive(true);
     }
     /**
      * Method getInvoiceStatus
@@ -82,7 +81,6 @@ public class Sell_Unpaid extends Invoice
         {
             Item item = DatabaseItem.getItemFromID(i.intValue());
             string += "\nItem: " + item.getName();
-            string += "\nAmount: " + getItem().size();
             string += "\nPrice: " + item.getPrice();
             string += "\nSupplier ID: " + item.getSupplier().getId();
             string += "\nSupplier name: " + item.getSupplier().getName();
