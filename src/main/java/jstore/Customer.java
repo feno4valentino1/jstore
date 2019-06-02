@@ -31,13 +31,12 @@ public class Customer
     /**
      * Constructor for objects of class Customer
      */
-    public Customer(String name, String email, String username, String password, int year, int month, int dayOfMonth)
+    public Customer(int id, String name, String email, String username, String password, int year, int month, int dayOfMonth)
     {
         this.name = name;
         setEmail(email);
         this.username = username;
         setPassword(password);
-        id = DatabaseCustomer.getLastCustomerID() + 1;
         this.birthDate = new GregorianCalendar(year, month-1, dayOfMonth);
     }
     public String getName()

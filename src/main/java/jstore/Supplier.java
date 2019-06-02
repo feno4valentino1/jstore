@@ -1,5 +1,5 @@
 package jstore;
-import java.util.regex.*;
+        import java.util.regex.*;
 
 /**
  * Write a description of class Supplier here.
@@ -14,7 +14,7 @@ public class Supplier
     private String email;
     private String phoneNumber;
     private Location location;
-    
+
     /**
      * Constructor for objects of class Supplier
      */
@@ -106,7 +106,7 @@ public class Supplier
     {
         this.email = email;
     }
-    
+
     /**
      * Method setPhoneNumber
      *
